@@ -1,9 +1,11 @@
 # Gmail to CRM Automation
 
-This project automates the process of extracting leads from Gmail and sending them to a CRM system using webhooks.
+Automates lead extraction from Gmail and sends structured data to a CRM, reducing manual processing time.
 
 ## Overview
-I built this script to reduce manual work when handling incoming leads. It scans emails, extracts key information like name, email, and phone number, and automatically sends the data to a CRM.
+This project automates the process of handling incoming leads from email. It scans Gmail threads, extracts key information such as name, email, and phone number, and sends the data to a CRM using webhooks.
+
+I built this during my internship to reduce manual work and make lead processing faster and more efficient.
 
 ## Features
 - Scans Gmail threads automatically
@@ -11,8 +13,8 @@ I built this script to reduce manual work when handling incoming leads. It scans
   - Email
   - Phone number
   - Name (if available)
-- Filters leads (only processes emails from specific sources like homes.com)
-- Sends data to CRM using webhook
+- Filters leads from specific sources
+- Sends data to a CRM using webhooks
 - Labels processed emails to avoid duplicates
 
 ## Tech Stack
@@ -22,22 +24,20 @@ I built this script to reduce manual work when handling incoming leads. It scans
 
 ## How it works
 1. Searches Gmail for unprocessed emails  
-2. Extracts lead information using regex  
-3. Sends valid leads to CRM  
+2. Extracts lead information using pattern matching  
+3. Sends valid leads to the CRM  
 4. Marks emails as processed  
 
-## Why I built this
-During my web development internship, I worked on automating lead processing to improve efficiency and reduce manual data entry.
+## Setup
+- Deploy the script in Google Apps Script  
+- Configure your webhook URL  
+- Run `runOnce()` to process emails  
 
-## What I learned
-- Working with APIs and webhooks  
-- Automating workflows  
-- Data extraction using regex  
-- Handling real-world edge cases  
-
-## Note
-Sensitive information such as API URLs has been partially hidden for security.
-
-## Author
-Eduardo Moyer  
-Computer Science student at UTEP
+## Example Output
+```json
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john@email.com",
+  "phone": "+1234567890"
+}
